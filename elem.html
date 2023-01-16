@@ -687,6 +687,7 @@ var a = `
 var cont = "";
 for (let char of a) {
 	if (char.codePointAt(0) < 32) cont += "<br><hr>";
+	if (char.codePointAt(0) == 32) cont += "<span class=huge>•</span>";
 	else cont += "<span class=huge onclick=say(0,\"" + char + "\")>" + char + "</span>\n";
 }
 document.getElementById("all").innerHTML = cont;
