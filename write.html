@@ -169,6 +169,8 @@ img {
 var synth = window.speechSynthesis;
 var chinese;
 findChinese(synth);
+window.onresize = initCanvas;
+
 function findChinese(s) {
   	const voices = synth.getVoices()
 	for(i = 0; i < voices.length ; i++) {
