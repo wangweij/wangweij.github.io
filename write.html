@@ -9,15 +9,15 @@
     text-align: center;
 }
 .wide {
-    font-size: 13vw;
+    font-size: 15vw;
     text-align: center;
 }
 body {
-	margin: 40pt;
+	margin: 0pt;
 }
 select {
 	width: 100%;
-	font-size: 50pt;
+	font-size: 5vw;
 }
 canvas {
 	border:2px solid;
@@ -302,8 +302,8 @@ function loadText(all) {
 function initCanvas() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
-    var sizex = window.innerWidth - 100;
-    var sizey = window.innerHeight - canvas.offsetTop - 50;
+    var sizex = window.innerWidth - 20;
+    var sizey = window.innerHeight - canvas.offsetTop - 10;
     if (sizex > sizey) sizex = sizey;
     w = h = canvas.height = canvas.width = sizex;
 
