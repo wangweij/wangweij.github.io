@@ -37,7 +37,7 @@ img {
 <body onload="initCanvas()">
 	<div style="text-align: center;">
 
-<select onchange=chooseText()>
+<select onchange=chooseText() id=select>
 <option value="">请选择一篇课文</option>
 <option value="0000">🤔🤔🤔🤔</option>
 <option value="">一年级下册</option>
@@ -207,14 +207,27 @@ var drawn = false;
 
 
 function chooseText() {
-	loadText(event.target.value);
+	var value = event.target.value;
+	var sel = document.getElementById("select");
+	var color = "red";
+	for (var i = 0; i < sel.options.length; i++) {
+		var opt = sel.options[i];
+		if (opt.value == value) {
+			break;
+		}
+		if (opt.innerText == "三年级上册") {
+			color = "black";
+		}
+	}
+	ctx.strokeStyle = color;
+	loadText(value);
 }
 
 function draw() {
     ctx.beginPath();
     ctx.moveTo(prevX, prevY);
     ctx.lineTo(currX, currY);
-    ctx.strokeStyle = "black";
+    // ctx.strokeStyle = "black";
     ctx.lineWidth = 10;
     ctx.stroke();
     ctx.closePath();
