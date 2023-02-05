@@ -159,7 +159,7 @@ img {
 <span id=one class=wide onclick=showOne()>🤔</span>
 <span class=wide onclick=showAll()>✅</span>
 </div>
-<canvas id="can"></canvas>
+<canvas id="can" style=width:95vw></canvas>
 </div>
 <div id=all style=display:block></div>
 <div id=unknown style=display:none class=huge><hr/></div>
@@ -302,10 +302,7 @@ function loadText(all) {
 function initCanvas() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
-    var sizex = window.innerWidth - 20;
-    var sizey = window.innerHeight - canvas.offsetTop - 10;
-    if (sizex > sizey) sizex = sizey;
-    w = h = canvas.height = canvas.width = sizex;
+    w = h = canvas.height = canvas.width;
 
     canvas.addEventListener("touchmove", function (e) { findxy('move', e) }, false);
     canvas.addEventListener("touchstart", function (e) { findxy('down', e) }, false);
