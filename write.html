@@ -209,14 +209,14 @@ var drawn = false;
 function chooseText() {
 	var value = event.target.value;
 	var sel = document.getElementById("select");
-	var color = "red";
+	var color = "pink";
 	for (var i = 0; i < sel.options.length; i++) {
 		var opt = sel.options[i];
 		if (opt.value == value) {
 			break;
 		}
 		if (opt.innerText == "三年级上册") {
-			color = "black";
+			color = "blue";
 		}
 	}
 	ctx.strokeStyle = color;
