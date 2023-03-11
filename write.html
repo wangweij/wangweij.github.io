@@ -169,7 +169,7 @@ img {
 var synth = window.speechSynthesis;
 var chinese;
 findChinese(synth);
-window.onresize = initCanvas;
+window.onresize = resizeCanvas;
 
 function findChinese(s) {
   	const voices = synth.getVoices()
@@ -331,6 +331,13 @@ function initCanvas() {
     canvas.addEventListener("mousedown", function (e) { findxy('down', e) }, false);
     canvas.addEventListener("mouseup", function (e) { findxy('up', e) }, false);
     canvas.addEventListener("mouseout", function (e) { findxy('out', e) }, false);
+}
+
+function resizeCanvas() {
+    var sizex = window.innerWidth - 20;
+    var sizey = window.innerHeight - canvas.offsetTop - 10;
+    if (sizex > sizey) sizex = sizey;
+    w = h = canvas.style.height = canvas.style.width = sizex;
 }
 
 function r(min, max) {
