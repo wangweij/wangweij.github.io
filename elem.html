@@ -12,8 +12,13 @@
 .huge {
     font-size: 50pt;
     height: 70px;
-    margin: 0px;
-	margin: 40pt;
+    margin: 40pt;
+}
+.bad {
+    display: fixed;
+    color:red;
+    right: 0;
+    width: 40%;
 }
 select {
 	width: 100%;
@@ -38,7 +43,7 @@ img {
 	<div id=nav></div>
 	<hr/>
 	<div id=all class=huge></div>
-	<div id=bad style="display: float; color:red"></div>
+	<div id=bad class=bad></div>
 <script>
 // scp ~/work/tmp/read.html cr.openjdk.java.net:9999999/webrev.00/
 var synth = window.speechSynthesis;
