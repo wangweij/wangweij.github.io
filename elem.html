@@ -65,7 +65,7 @@ function say(n, words) {
 	var utterThis = new SpeechSynthesisUtterance(words);
 	utterThis.voice = chinese;
 	// utterThis.pitch = pitch.value;
-	// utterThis.rate = 0.5;
+	utterThis.rate = 0.5;
 	synth.speak(utterThis);
 	if (words != "：" && words != "、" && words.codePointAt(0) > 300 && n == 0) {
 		if (!dict.has(words)) {
