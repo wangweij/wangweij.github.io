@@ -247,6 +247,7 @@ var canvas, ctx, flag = false,
     currY = 0,
     dot_flag = false;
 var drawn = false;
+var drawing = false;
 
 
 function chooseText() {
@@ -365,9 +366,11 @@ function initCanvas() {
     var sizey = window.innerHeight - canvas.offsetTop - 10;
     if (sizex > sizey) sizex = sizey;
     w = h = canvas.height = canvas.width = sizex;
+    startDraw();
 }
 
 function startDraw() {
+	if (drawing) return;
     canvas.addEventListener("touchmove", gomove, false);
     canvas.addEventListener("touchstart", godown, false);
     canvas.addEventListener("touchcancel", goout, false);
@@ -377,9 +380,11 @@ function startDraw() {
     canvas.addEventListener("mousedown", godown, false);
     canvas.addEventListener("mouseup", goout, false);
     canvas.addEventListener("mouseout", goout, false);
+    drawing = true;
 }
 
 function stopDraw() {
+	if (!drawing) return;
     canvas.removeEventListener("touchmove", gomove, false);
     canvas.removeEventListener("touchstart", godown, false);
     canvas.removeEventListener("touchcancel", goout, false);
@@ -389,6 +394,7 @@ function stopDraw() {
     canvas.removeEventListener("mousedown", godown, false);
     canvas.removeEventListener("mouseup", goout, false);
     canvas.removeEventListener("mouseout", goout, false);
+    drawing = false;
 }
 
 function resizeCanvas() {
@@ -420,6 +426,7 @@ function checkGray() {
 function sayOne(i) {
 	if (i != 0) save();
 	erase();
+    startDraw();
 	if (i == -2) pos = 0;
 	else if (i == -1) --pos;
 	else if (i == 0) pos = pos;
